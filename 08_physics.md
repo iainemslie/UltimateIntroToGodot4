@@ -34,7 +34,7 @@
 
 #### Any static object: Walls, beds, obstacles...etc.
 
-### `RididBody2D`
+### `RigidBody2D`
 
 #### Moving body that moves via physics (like a cannonball). i.e. Grenade
 
