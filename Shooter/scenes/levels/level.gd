@@ -10,13 +10,12 @@ func _ready():
 		
 	print(test_array[0])
 
-func _process(delta):
-	$Logo.rotation_degrees += 1
 	
-	# flow -> if rotation > 180 -> 0
-#	if $Logo.rotation_degrees > 180:
-#		$Logo.rotation_degrees = 0
+func _process(delta):
+	$Logo.rotation_degrees += 60 * delta
 
 	if $Logo.position.x >= 1000:
-		print('position')
 		$Logo.pos.x = 0
+
+func test_function():
+	print("This is a test function")
