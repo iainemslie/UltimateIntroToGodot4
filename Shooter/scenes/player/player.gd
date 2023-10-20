@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 var can_laser: bool = true
 var can_grenade: bool = true
+signal laser
+signal grenade
 
 func _process(_delta):
 	
@@ -13,12 +15,14 @@ func _process(_delta):
 	# laser shooting input
 	if(Input.is_action_pressed("primary action") and can_laser):
 		print("Pew")
+		laser.emit()
 		can_laser = false
 		$LaserTimer.start()
 		
 	# throw grenade
 	if(Input.is_action_pressed("secondary action") and can_grenade):
 		print("Lob")
+		grenade.emit()
 		$GrenadeTimer.start(2)
 		can_grenade = false
 		
