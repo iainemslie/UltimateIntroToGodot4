@@ -1,4 +1,4 @@
-extends Node2D
+extends RigidBody2D
 
-func _process(delta):
-	print('LWOKOK')
+const speed = 750
+
