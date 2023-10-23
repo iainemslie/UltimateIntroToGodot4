@@ -114,6 +114,10 @@ position = Vector2(566, 532)
 
 [node name="Projectiles" type="Node2D" parent="."]
 
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.964706, 0.141176, 0.145098, 1)
+energy = 0.5
+
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="grenade" from="Player" to="." method="_on_player_grenade"]
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]
