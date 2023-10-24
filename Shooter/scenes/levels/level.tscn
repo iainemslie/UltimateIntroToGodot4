@@ -114,10 +114,14 @@ metadata/_edit_lock_ = true
 [node name="Player" parent="." instance=ExtResource("4_tamdm")]
 position = Vector2(566, 532)
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.6, 0.6)
+position_smoothing_enabled = true
+
 [node name="Projectiles" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+[node name="SunLamp" type="DirectionalLight2D" parent="."]
 color = Color(0.964706, 0.141176, 0.145098, 1)
 energy = 0.5
 
@@ -127,6 +131,8 @@ scale = Vector2(2, 2)
 autoplay = "default"
 frame_progress = 0.208845
 
+[connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
+[connection signal="player_exited" from="Ground/House" to="." method="_on_house_player_exited"]
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="grenade" from="Player" to="." method="_on_player_grenade"]
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]
