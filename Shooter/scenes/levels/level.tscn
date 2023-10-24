@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://doxdjfbdppatn"]
+[gd_scene load_steps=19 format=3 uid="uid://doxdjfbdppatn"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_d23k6"]
 [ext_resource type="PackedScene" uid="uid://ci6ts0tvkqkqm" path="res://scenes/objects/gate.tscn" id="2_55ex3"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://carv06k6wlwjt" path="res://scenes/houses/house.tscn" id="10_y0vr6"]
 [ext_resource type="PackedScene" uid="uid://bdga5trmdg34d" path="res://scenes/objects/steam_vent.tscn" id="11_hkooy"]
 [ext_resource type="PackedScene" uid="uid://2flgg50eh8gv" path="res://scenes/objects/light_fan_animation.tscn" id="14_xl2g3"]
+[ext_resource type="PackedScene" uid="uid://bdqmw5cr7q6m7" path="res://scenes/enemies/drone.tscn" id="15_hm2ks"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_htb0u"]
 resource_name = "walls"
@@ -130,6 +131,9 @@ position = Vector2(-1526, 1276)
 scale = Vector2(2, 2)
 autoplay = "default"
 frame_progress = 0.208845
+
+[node name="Drone" parent="." instance=ExtResource("15_hm2ks")]
+position = Vector2(342, 902)
 
 [connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
 [connection signal="player_exited" from="Ground/House" to="." method="_on_house_player_exited"]
