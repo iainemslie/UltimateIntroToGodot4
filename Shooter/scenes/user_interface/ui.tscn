@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://6jvjxrvrkl4m"]
+[gd_scene load_steps=7 format=3 uid="uid://6jvjxrvrkl4m"]
 
 [ext_resource type="Texture2D" uid="uid://b48eutewmxojo" path="res://graphics/ui/bullet.png" id="1_amd7w"]
+[ext_resource type="Script" path="res://scenes/user_interface/ui.gd" id="1_hny0s"]
 [ext_resource type="Theme" uid="uid://cj76gve8fb6m6" path="res://scenes/user_interface/main_theme.tres" id="1_sbrge"]
 [ext_resource type="Texture2D" uid="uid://b2x7267n2cort" path="res://graphics/ui/grenade.png" id="2_afac3"]
 [ext_resource type="Texture2D" uid="uid://cq5ygis067moc" path="res://graphics/ui/progress_bar/bg.png" id="4_r3885"]
 [ext_resource type="Texture2D" uid="uid://cy30tbpctjjtl" path="res://graphics/ui/progress_bar/progress.png" id="5_qyaia"]
 
 [node name="UI" type="CanvasLayer"]
+script = ExtResource("1_hny0s")
 
 [node name="LaserCounter" type="Control" parent="."]
 layout_mode = 3
@@ -19,9 +21,12 @@ offset_right = 40.0
 grow_vertical = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LaserCounter"]
-layout_mode = 2
-offset_right = 19.0
-offset_bottom = 49.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="LaserCounter/VBoxContainer"]
 layout_mode = 2
