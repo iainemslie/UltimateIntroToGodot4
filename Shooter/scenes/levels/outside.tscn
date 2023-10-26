@@ -105,7 +105,7 @@ rotation = -2.18166
 position = Vector2(25, 640)
 
 [node name="Player" parent="." index="2"]
-position = Vector2(528, 301)
+position = Vector2(514, 437)
 
 [node name="Gate" parent="." index="3" instance=ExtResource("2_iimn4")]
 position = Vector2(488, -552)
