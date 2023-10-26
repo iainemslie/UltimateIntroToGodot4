@@ -4,6 +4,8 @@ var can_laser: bool = true
 var can_grenade: bool = true
 signal laser(pos, direction)
 signal grenade(pos, direction)
+signal update_stats()
+
 var player_direction: Vector2;
 
 @export var max_speed: int = 500
@@ -45,3 +47,11 @@ func _on_grenade_timer_timeout():
 
 func _on_laser_timer_timeout():
 	can_laser = true
+	
+func add_item(type: String) -> void:
+	if type == 'laser':
+		Globals.laser_amount += 5
+	if type == 'grenade':
+		Globals.grenade_amount += 5
+		
+	update_stats.emit()

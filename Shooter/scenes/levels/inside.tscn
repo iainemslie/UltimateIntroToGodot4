@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://brrqmtybt3a6h"]
+[gd_scene load_steps=17 format=3 uid="uid://brrqmtybt3a6h"]
 
 [ext_resource type="PackedScene" uid="uid://doxdjfbdppatn" path="res://scenes/levels/level.tscn" id="1_tjpuy"]
 [ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_a1v07"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://yl0mqt1i3ftu" path="res://graphics/lights/overlays/infrastructure.png" id="9_sdxbt"]
 [ext_resource type="Texture2D" uid="uid://o0yw5ifsfftg" path="res://graphics/lights/overlays/lattice.png" id="10_4271j"]
 [ext_resource type="Texture2D" uid="uid://b78jjocv1uxsu" path="res://graphics/lights/overlays/hole.png" id="11_p7cn1"]
+[ext_resource type="PackedScene" uid="uid://cnhu1pcm8yo7j" path="res://scenes/items/item.tscn" id="15_0w570"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v8lcu"]
 size = Vector2(1131, 153)
@@ -50,7 +51,10 @@ layer_2/y_sort_origin = 0
 layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array(0, 65537, 6, 131072, 65537, 6, 196608, 65537, 6, 262144, 327681, 8, 65536, 131073, 8, -851964, 327681, 8, -1310716, 327681, 6, -1245180, 65537, 6, -1179644, 65537, 6, -1114108, 65537, 6, -1048572, 65537, 6, -983036, 196609, 6, -983035, 1, 6, -983034, 1, 6, -983031, 393217, 7, -983037, 1, 6, -983038, 1, 6, -983039, 1, 6, -983040, 1, 6, -917505, 1, 6, -917506, 1, 6, -917509, 262145, 7, -720893, 327681, 6, 196615, 65537, 6, 131079, 65537, 6, 65543, 196609, 7, 7, 1, 7, 11, 393217, 7, 262151, 327681, 8, -65536, 65537, 7, -5, 262145, 7, -4, 1, 6, -1, 1, 6, 65537, 1, 6, 65538, 65537, 8, 65541, 1, 6, 65542, 1, 6, 65540, 1, 8, 2, 65537, 6, -65534, 65537, 6, 4, 65537, 6, -65532, 65537, 6, -196604, 327681, 6, -196606, 327681, 6, 10, 1, 6, -655357, 65537, 6, -589821, 1, 8, -589820, 1, 6, -589819, 1, 6, -589818, 1, 6, -589815, 1, 6, -589814, 1, 6, -589813, 393217, 7, -524292, 1, 6, -524291, 1, 6, -524290, 1, 6, -524289, 1, 6, -589824, 65537, 7, -393216, 327681, 8, -1179648, 65537, 8, -1114113, 1, 6, -1114116, 1, 6, -1245184, 65537, 6, -1310720, 327681, 6, -1114117, 262145, 7, -917508, 393217, 7, -983033, 393217, 7, -983032, 262145, 7, -1114114, 262145, 7, -1114115, 393217, 7)
 
-[node name="Player" parent="." index="2"]
+[node name="Item" parent="." index="1" instance=ExtResource("15_0w570")]
+position = Vector2(1358, 1278)
+
+[node name="Player" parent="." index="3"]
 position = Vector2(1368, 1597)
 
 [node name="Camera2D" parent="Player" index="7"]
@@ -61,17 +65,18 @@ texture = ExtResource("4_lqfpn")
 texture_scale = 3.0
 metadata/_edit_lock_ = true
 
-[node name="Toilet" parent="." index="3" instance=ExtResource("6_3qb44")]
+[node name="Toilet" parent="." index="4" instance=ExtResource("6_3qb44")]
 position = Vector2(3430, -3887)
 
-[node name="Box" parent="." index="4" instance=ExtResource("7_ifr3m")]
+[node name="Box" parent="." index="5" instance=ExtResource("7_ifr3m")]
 position = Vector2(-1390, -98)
 
-[node name="Toilet2" parent="." index="5" instance=ExtResource("6_3qb44")]
+[node name="Toilet2" parent="." index="6" instance=ExtResource("6_3qb44")]
 position = Vector2(2827, -3879)
 
-[node name="Lights" parent="." index="6"]
+[node name="Lights" parent="." index="7"]
 metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="SimpleLight" parent="Lights" index="0" instance=ExtResource("3_nrhgy")]
 position = Vector2(2388, 1676)
@@ -80,7 +85,6 @@ rotation = -3.14159
 [node name="SimpleLight2" parent="Lights" index="1" instance=ExtResource("3_nrhgy")]
 position = Vector2(576, 1676)
 rotation = -3.14159
-metadata/_edit_lock_ = true
 
 [node name="SimpleLight3" parent="Lights" index="2" instance=ExtResource("3_nrhgy")]
 position = Vector2(620, 612)
@@ -224,12 +228,12 @@ texture = ExtResource("9_sdxbt")
 position = Vector2(4408, -344)
 rotation = 1.5708
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="7"]
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="8"]
 color = Color(0.690196, 0, 0.286275, 1)
 blend_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="ExitGateArea" type="Area2D" parent="." index="8"]
+[node name="ExitGateArea" type="Area2D" parent="." index="9"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0"]
 position = Vector2(1364.5, 1755.5)
