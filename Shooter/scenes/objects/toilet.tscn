@@ -13,6 +13,7 @@ height = 242.0
 script = ExtResource("2_q56v5")
 
 [node name="BaseSprite" parent="." index="0"]
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_hh4sw")
 
 [node name="LidSprite" parent="." index="1"]
