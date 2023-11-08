@@ -12,7 +12,8 @@ var player_direction: Vector2;
 var speed: int = max_speed
 
 func hit():
-	print("player was hit")
+	Globals.health_amount -= 10
+	
 
 func _process(_delta):
 	
