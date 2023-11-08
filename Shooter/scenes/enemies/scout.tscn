@@ -1,7 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://m8xa7t5vcg2y"]
+[gd_scene load_steps=7 format=3 uid="uid://m8xa7t5vcg2y"]
 
 [ext_resource type="Script" path="res://scenes/enemies/scout.gd" id="1_etna7"]
 [ext_resource type="Texture2D" uid="uid://c1hjxh482hr4k" path="res://graphics/enemies/scout.png" id="1_g7ymq"]
+[ext_resource type="Shader" path="res://scenes/enemies/scout.gdshader" id="2_svrcx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pcmtx"]
+shader = ExtResource("2_svrcx")
+shader_parameter/color = Color(0.988235, 0.384314, 0.309804, 1)
+shader_parameter/progress = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_raqxn"]
 radius = 42.1545
@@ -15,6 +21,7 @@ collision_mask = 11
 script = ExtResource("1_etna7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_pcmtx")
 position = Vector2(35, 27)
 rotation = 1.5708
 texture = ExtResource("1_g7ymq")
@@ -43,7 +50,7 @@ position = Vector2(115, -25)
 [node name="LaserTimer" type="Timer" parent="Timers"]
 
 [node name="HitTimer" type="Timer" parent="Timers"]
-wait_time = 0.5
+wait_time = 0.2
 one_shot = true
 
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

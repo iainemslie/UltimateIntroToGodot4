@@ -14,6 +14,7 @@ func hit():
 		health -= 10
 		vulnerable = false
 		$Timers/HitTimer.start()
+		$Sprite2D.material.set_shader_parameter("progress", 1)
 	if health <= 0:
 		queue_free()
 
@@ -46,3 +47,5 @@ func _on_laser_timer_timeout():
 
 func _on_hit_timer_timeout():
 	vulnerable = true
+	$Sprite2D.material.set_shader_parameter("progress", 0)
+	
