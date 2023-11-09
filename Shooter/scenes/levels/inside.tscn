@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://brrqmtybt3a6h"]
+[gd_scene load_steps=32 format=3 uid="uid://brrqmtybt3a6h"]
 
 [ext_resource type="PackedScene" uid="uid://doxdjfbdppatn" path="res://scenes/levels/level.tscn" id="1_tjpuy"]
 [ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_a1v07"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://cps6hdc5tbsor" path="res://graphics/objects/infestation/small_3.png" id="19_tkt4e"]
 [ext_resource type="Texture2D" uid="uid://c8g0bblam7osg" path="res://graphics/objects/infestation/small_4.png" id="20_mxqwa"]
 [ext_resource type="Texture2D" uid="uid://dghyi2b6yu0ei" path="res://graphics/objects/infestation/spikes.png" id="21_jamwy"]
+[ext_resource type="PackedScene" uid="uid://bdqmw5cr7q6m7" path="res://scenes/enemies/drone.tscn" id="30_2v3u4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v8lcu"]
 size = Vector2(1131, 153)
@@ -459,5 +460,8 @@ texture = ExtResource("9_sdxbt")
 [node name="SimpleLight18" parent="Lights" index="32" instance=ExtResource("3_nrhgy")]
 position = Vector2(4408, -344)
 rotation = 1.5708
+
+[node name="Drone" parent="." index="13" instance=ExtResource("30_2v3u4")]
+position = Vector2(-420, 815)
 
 [connection signal="body_entered" from="ExitGateArea" to="." method="_on_exit_gate_area_body_entered"]
