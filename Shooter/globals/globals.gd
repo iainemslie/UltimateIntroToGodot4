@@ -2,6 +2,8 @@ extends Node
 
 signal stat_change
 
+var player_hit_sound: AudioStreamPlayer2D
+
 var laser_amount = 20:
 	set(value):
 		if value >= 100:
@@ -27,6 +29,7 @@ var health_amount = 60:
 			health_amount = value
 			player_vulnerable = false
 			player_invulnerable_timer()
+			player_hit_sound.play()
 		stat_change.emit()
 		
 func player_invulnerable_timer():
@@ -34,3 +37,8 @@ func player_invulnerable_timer():
 	player_vulnerable = true
 		
 var player_pos: Vector2
+
+func _ready():
+	player_hit_sound = AudioStreamPlayer2D.new()
+	player_hit_sound.stream = load("res://audio/solid_impact.ogg")
+	add_child(player_hit_sound)

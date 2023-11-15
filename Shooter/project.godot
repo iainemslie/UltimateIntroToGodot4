@@ -16,13 +16,16 @@ config/features=PackedStringArray("4.1", "Mobile")
 
 [autoload]
 
-Globals="*res://globals/globals.gd"
 TransitionLayer="*res://globals/transition_layer.tscn"
+Music="*res://globals/music.tscn"
+Globals="*res://globals/globals.gd"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+mouse_cursor/custom_image="res://graphics/ui/crosshair159.png"
+mouse_cursor/custom_image_hotspot=Vector2(17, 17)
 
 [input]
 

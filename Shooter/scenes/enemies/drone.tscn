@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdqmw5cr7q6m7"]
+[gd_scene load_steps=12 format=3 uid="uid://bdqmw5cr7q6m7"]
 
 [ext_resource type="Script" path="res://scenes/enemies/drone.gd" id="1_imc17"]
 [ext_resource type="Texture2D" uid="uid://bl3iw1ctty3h3" path="res://graphics/enemies/drone.png" id="1_lvho4"]
 [ext_resource type="Shader" path="res://scenes/enemies/drone.gdshader" id="2_2a46v"]
 [ext_resource type="Texture2D" uid="uid://camhhq6f4fhn2" path="res://graphics/explosions/explosion_3.png" id="3_g2rag"]
+[ext_resource type="AudioStream" uid="uid://dsidde6rxadil" path="res://audio/solid_impact.ogg" id="5_y6meg"]
+[ext_resource type="AudioStream" uid="uid://c7jgpsplnm4do" path="res://audio/explosion.wav" id="6_l53yy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q122s"]
 shader = ExtResource("2_2a46v")
@@ -15,21 +17,6 @@ radius = 72.3395
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_obqoi"]
 radius = 1318.11
-
-[sub_resource type="Animation" id="Animation_nscpb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Explosion:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [24]
-}
 
 [sub_resource type="Animation" id="Animation_tkjd5"]
 resource_name = "explosion"
@@ -99,10 +86,24 @@ tracks/4/keys = {
 "method": &"stop_movement"
 }]
 }
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sounds/ExplosionSound")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_l53yy")
+}],
+"times": PackedFloat32Array(0.15)
+}
+tracks/5/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c1byh"]
 _data = {
-"RESET": SubResource("Animation_nscpb"),
 "explosion": SubResource("Animation_tkjd5")
 }
 
@@ -133,12 +134,20 @@ wait_time = 0.2
 texture = ExtResource("3_g2rag")
 hframes = 8
 vframes = 8
-frame = 24
+frame = 51
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_c1byh")
 }
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("5_y6meg")
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("6_l53yy")
 
 [connection signal="body_entered" from="NoticeArea" to="." method="_on_notice_area_body_entered"]
 [connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1qv330xvb1qp"]
+[gd_scene load_steps=5 format=3 uid="uid://d1qv330xvb1qp"]
 
 [ext_resource type="Texture2D" uid="uid://dfbym3uighgnj" path="res://graphics/projectiles/blue.png" id="1_cetaa"]
 [ext_resource type="Script" path="res://scenes/projectiles/laser.gd" id="1_lobyn"]
+[ext_resource type="AudioStream" uid="uid://hxluen06rs8y" path="res://audio/laser.wav" id="3_uxnv2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2jpxv"]
 radius = 8.0
@@ -23,6 +24,10 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_2jpxv")
 
 [node name="SelfDestructTimer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_uxnv2")
+autoplay = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="SelfDestructTimer" to="." method="_on_self_destruct_timer_timeout"]

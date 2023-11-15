@@ -11,10 +11,10 @@ func hit():
 	if vulnerable:
 		vulnerable = false
 		$Timers/HitTimer.start()
-		print('bug was hit')
 		health -= 10
 		$AnimatedSprite2D.material.set_shader_parameter("progress", 0.5)
 		$Particles/HitParticles.emitting = true
+		$AudioStreamPlayer2D.play()
 	if health <= 0:
 		await get_tree().create_timer(0.5).timeout		
 		queue_free()
